@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Search = () => {
     const [term, setTerm] = useState('');
-    const [result, setResult] = useState([]);
+    const [results, setResults] = useState([]);
 
     useEffect(() => {
         const search = async () => {
@@ -16,16 +16,21 @@ const Search = () => {
                     srsearch: term
                 }
             });
-            setResult(data.query.search);
+            setResults(data.query.search);
         }
-        const timeoutId = setTimeout({
+        const timeoutId = setTimeout(() => {
             if (term) {
                 search();
             }
         }, 500);
+
+        //! cleanup function
+        return (() => {
+            clearTimeout(timeoutId);
+        });
     }, [term]);
 
-    const filteredResults = result.map(res => {
+    const filteredResults = results.map(res => {
         return (
             <div className="item" key={res.pageid}>
                 <div className="right floated content">
@@ -33,6 +38,7 @@ const Search = () => {
                         href={`https://en.wikipedia.org?curid=${res.pageid}`}
                         className="ui button"
                         target="_blank"
+                        rel="noreferrer"
                     >
                         Go
                     </a>
