@@ -26,6 +26,15 @@ const Search = () => {
     const filteredResults = result.map(res => {
         return (
             <div className="item" key={res.pageid}>
+                <div className="right floated content">
+                    <a
+                        href={`https://en.wikipedia.org?curid=${res.pageid}`}
+                        className="ui button"
+                        target="_blank"
+                    >
+                        Go
+                    </a>
+                </div>
                 <div className="content">
                     <div className="header">
                         {res.title}
