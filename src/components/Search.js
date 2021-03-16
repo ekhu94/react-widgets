@@ -5,8 +5,6 @@ const Search = () => {
     const [term, setTerm] = useState('');
     const [result, setResult] = useState([]);
 
-    console.log(result)
-
     useEffect(() => {
         const search = async () => {
             const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
@@ -25,6 +23,19 @@ const Search = () => {
         }
     }, [term]);
 
+    const filteredResults = result.map(res => {
+        return (
+            <div className="item" key={res.pageid}>
+                <div className="content">
+                    <div className="header">
+                        {res.title}
+                    </div>
+                </div>
+                {res.snippet}
+            </div>
+        );
+    });
+
     return (
         <div>
             <div className="ui form">
@@ -38,6 +49,9 @@ const Search = () => {
                         onChange={e => setTerm(e.target.value)}
                     />
                 </div>
+            </div>
+            <div className="ui celled list">
+                {filteredResults}
             </div>
         </div>
     );
