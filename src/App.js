@@ -35,9 +35,9 @@ const options = [
 
 const App = () => {
     return (
-        //! <Accordion items={items} />
+        //! <Accordion items={ items } />
         //* <Search />
-        <Dropdown />
+        <Dropdown options={ options } />
     );
 }
 
