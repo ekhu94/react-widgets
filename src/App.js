@@ -57,7 +57,7 @@ const App = () => {
         //         /> : null
         //     }
         // </div>
-        <div>
+        <div className="ui container">
             <Translate />
         </div>
     );
