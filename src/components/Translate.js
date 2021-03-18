@@ -12,8 +12,40 @@ const options = [
         value: 'ar'
     },
     {
+        label: 'French',
+        value: 'fr'
+    },
+    {
+        label: 'German',
+        value: 'de'
+    },
+    {
+        label: 'Italian',
+        value: 'it'
+    },
+    {
         label: 'Japanese',
-        value: 'jp'
+        value: 'ja'
+    },
+    {
+        label: 'Korean',
+        value: 'ko'
+    },
+    {
+        label: 'Mongolian',
+        value: 'mn'
+    },
+    {
+        label: 'Persian',
+        value: 'fa'
+    },
+    {
+        label: 'Swedish',
+        value: 'sv'
+    },
+    {
+        label: 'Tagalog',
+        value: 'tl'
     }
 ];
 
