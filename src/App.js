@@ -38,6 +38,18 @@ const App = () => {
     // const [selected, setSelected] = useState(options[0]);
     // const [showDropdown, setShowDropdown] = useState(true);
 
+    const showComponent = () => {
+        switch(window.location.pathname) {
+            case '/':
+                return <Accordion items={items} />
+            case '/search':
+                return <Search />
+            case '/dropdown':
+                return <Dropdown />
+            case '/translate':
+                return <Translate />
+        }
+    }
 
     return (
         //! <Accordion items={items} />
@@ -57,8 +69,8 @@ const App = () => {
         //         /> : null
         //     }
         // </div>
-        <div className="ui container">
-            <Translate />
+        <div>
+            {showComponent()}
         </div>
     );
 }
